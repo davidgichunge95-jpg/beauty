@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://davidgichunge95-jpg.github.io/beauty/sitemap.xml
