@@ -1,0 +1,1246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Glamour Beauty Parlour</title>
+
+    <!-- BOOTSTRAP 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- BOOTSTRAP ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS STYLING -->
+    <style>
+
+        :root {
+            --pink: #e83e8c;
+            --dark-pink: #c2185b;
+            --black: #111;
+            --yellow: #ffcc00;
+            --white: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 75px;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            background: #111;
+            padding: 18px 0;
+            transition: 0.3s;
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-size: 27px;
+            font-weight: bold;
+        }
+
+        .navbar-brand span {
+            color: var(--pink);
+        }
+
+        .nav-link {
+            color: white !important;
+            margin: 0 10px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--yellow) !important;
+        }
+
+        .book-btn {
+            background: var(--pink);
+            color: white;
+            border-radius: 30px;
+            padding: 10px 22px;
+            text-decoration: none;
+        }
+
+        .book-btn:hover {
+            background: var(--yellow);
+            color: black;
+        }
+
+        /* HERO SECTION */
+
+        .hero {
+            min-height: 100vh;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.88),
+                    rgba(0,0,0,0.35)
+                ),
+                url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=1800')
+                center/cover no-repeat;
+
+            display: flex;
+            align-items: center;
+            color: white;
+            padding: 120px 0 70px;
+        }
+
+        .hero-subtitle {
+            color: var(--yellow);
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 65px);
+            font-weight: 800;
+            margin: 20px 0;
+        }
+
+        .hero h1 span {
+            color: var(--pink);
+        }
+
+        .hero-description {
+            max-width: 550px;
+            line-height: 1.8;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .main-btn {
+            background: var(--pink);
+            color: white;
+            padding: 13px 28px;
+            border-radius: 30px;
+            border: 2px solid var(--pink);
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .main-btn:hover {
+            background: var(--yellow);
+            border-color: var(--yellow);
+            color: black;
+            transform: translateY(-3px);
+        }
+
+        .outline-btn {
+            color: white;
+            border: 2px solid white;
+            border-radius: 30px;
+            padding: 13px 28px;
+            margin-left: 10px;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .outline-btn:hover {
+            background: var(--yellow);
+            border-color: var(--yellow);
+            color: black;
+        }
+
+        /* SECTION HEADINGS */
+
+        .section-heading {
+            margin-bottom: 50px;
+        }
+
+        .section-heading .subtitle {
+            color: var(--pink);
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .section-heading h2 {
+            font-size: 36px;
+            font-weight: 800;
+        }
+
+        .heading-line {
+            width: 70px;
+            height: 4px;
+            background: var(--yellow);
+            margin: 15px auto;
+            border-radius: 5px;
+        }
+
+        /* SERVICES */
+
+        .services-section {
+            padding: 100px 0;
+            background: #fff5fa;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 100%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.4s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 12px 30px rgba(232,62,140,0.2);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .service-content {
+            padding: 22px;
+        }
+
+        .service-content h4 {
+            color: var(--dark-pink);
+            font-weight: bold;
+        }
+
+        .service-content p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        .service-content a {
+            text-decoration: none;
+            color: var(--pink);
+            font-weight: bold;
+        }
+
+        /* ABOUT */
+
+        .about-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 15px 15px 0 var(--pink);
+        }
+
+        .experience-box {
+            position: absolute;
+            bottom: 20px;
+            right: -10px;
+            background: var(--yellow);
+            padding: 20px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .experience-box h3 {
+            font-size: 30px;
+            font-weight: 800;
+        }
+
+        .experience-box p {
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .about-content h2 {
+            font-size: 38px;
+            font-weight: 800;
+            margin: 15px 0 25px;
+        }
+
+        .about-content p {
+            line-height: 1.9;
+            color: #666;
+        }
+
+        .section-subtitle {
+            color: var(--pink);
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        /* CONTACT */
+
+        .contact-section {
+            padding: 100px 0;
+            background: #fff5fa;
+        }
+
+        .contact-info {
+            background: var(--black);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            height: 100%;
+        }
+
+        .contact-info h3 {
+            color: var(--pink);
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 18px;
+            margin-top: 30px;
+        }
+
+        .contact-item i {
+            font-size: 25px;
+            color: var(--yellow);
+        }
+
+        .contact-item h5 {
+            color: var(--pink);
+            font-size: 17px;
+        }
+
+        .contact-item p {
+            color: #ddd;
+            margin: 0;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+        }
+
+        .contact-form label {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .form-control,
+        .form-select {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--pink);
+            box-shadow: 0 0 0 0.2rem rgba(232,62,140,0.15);
+        }
+
+        /* FOOTER */
+
+        .footer {
+            background: var(--black);
+            color: white;
+            padding: 70px 0 20px;
+        }
+
+        .footer h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .footer h3 span {
+            color: var(--pink);
+        }
+
+        .footer h5 {
+            color: var(--yellow);
+            margin-bottom: 20px;
+        }
+
+        .footer p {
+            color: #bbb;
+            line-height: 1.8;
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer ul li a:hover {
+            color: var(--pink);
+            padding-left: 5px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--pink);
+            color: white;
+            border-radius: 50%;
+            margin-right: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--yellow);
+            color: black;
+            transform: translateY(-5px);
+        }
+
+        .footer hr {
+            border-color: #555;
+            margin-top: 40px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 15px;
+        }
+
+        /* WHATSAPP */
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            color: white;
+            font-size: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-decoration: none;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            color: white;
+        }
+
+        /* RESPONSIVE DESIGN */
+
+        @media(max-width: 991px) {
+
+            .navbar-collapse {
+                background: #111;
+                padding: 20px;
+            }
+
+            .hero {
+                min-height: 700px;
+            }
+
+            .about-content {
+                margin-top: 20px;
+            }
+        }
+
+        @media(max-width: 576px) {
+
+            .hero h1 {
+                font-size: 39px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .outline-btn {
+                margin: 12px 0 0;
+            }
+
+            .section-heading h2 {
+                font-size: 28px;
+            }
+
+            .about-content h2 {
+                font-size: 29px;
+            }
+
+            .about-image img {
+                height: 350px;
+            }
+
+            .contact-form {
+                padding: 22px;
+            }
+
+            .experience-box {
+                right: 0;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION BAR -->
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+
+        <a class="navbar-brand" href="#home">
+            <span>Glamour</span> Beauty
+        </a>
+
+        <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="#home">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact Us</a>
+                </li>
+
+            </ul>
+
+            <a href="#contact" class="book-btn ms-lg-3">
+                Book Appointment
+            </a>
+
+        </div>
+    </div>
+</nav>
+
+
+<!-- HERO SECTION -->
+
+<section id="home" class="hero">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-7">
+
+                <p class="hero-subtitle">
+                    WELCOME TO GLAMOUR BEAUTY PARLOUR
+                </p>
+
+                <h1>
+                    Enhance Your Beauty,
+                    Embrace Your
+                    <span>Confidence.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Discover your true beauty with our professional
+                    beauty treatments, hair styling and skincare
+                    services. You deserve to look and feel amazing
+                    every day.
+                </p>
+
+                <a href="#contact" class="main-btn">
+                    Book An Appointment
+                </a>
+
+                <a href="#services" class="outline-btn">
+                    Explore Services
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES SECTION -->
+
+<section id="services" class="services-section">
+
+    <div class="container">
+
+        <div class="section-heading text-center">
+
+            <p class="subtitle">WHAT WE OFFER</p>
+
+            <h2>Our Beauty Services</h2>
+
+            <div class="heading-line"></div>
+
+            <p class="text-muted">
+                Experience luxury, beauty and professional care.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- SERVICE 1 -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="service-card">
+
+                    <img src="https://images.unsplash.com/photo-1560869713-da86a9ecb2c6?w=600"
+                        alt="Hair Styling">
+
+                    <div class="service-content">
+
+                        <h4>Hair Styling</h4>
+
+                        <p>
+                            Beautiful haircuts, styling and treatments
+                            to give your hair a stunning look.
+                        </p>
+
+                        <a href="#contact">Book Now →</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SERVICE 2 -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="service-card">
+
+                    <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600"
+                        alt="Makeup">
+
+                    <div class="service-content">
+
+                        <h4>Makeup & Beauty</h4>
+
+                        <p>
+                            Professional makeup for weddings,
+                            parties and special occasions.
+                        </p>
+
+                        <a href="#contact">Book Now →</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SERVICE 3 -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="service-card">
+
+                    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600"
+                        alt="Manicure">
+
+                    <div class="service-content">
+
+                        <h4>Manicure & Pedicure</h4>
+
+                        <p>
+                            Pamper your hands and feet with beautiful
+                            nail designs and treatments.
+                        </p>
+
+                        <a href="#contact">Book Now →</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SERVICE 4 -->
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="service-card">
+
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600"
+                        alt="Facial">
+
+                    <div class="service-content">
+
+                        <h4>Facial & Skincare</h4>
+
+                        <p>
+                            Refresh your skin with relaxing facials
+                            and skincare treatments.
+                        </p>
+
+                        <a href="#contact">Book Now →</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT SECTION -->
+
+<section id="about" class="about-section">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+
+                <div class="about-image">
+
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=900"
+                        alt="Beauty Parlour">
+
+                    <div class="experience-box">
+
+                        <h3>100%</h3>
+
+                        <p>Beauty & Confidence</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <div class="about-content">
+
+                    <p class="section-subtitle">
+                        ABOUT OUR PARLOUR
+                    </p>
+
+                    <h2>
+                        Beauty Is Our Passion, Your Happiness Is Our Priority.
+                    </h2>
+
+                    <p>
+                        Welcome to Glamour Beauty Parlour, your
+                        destination for beauty, relaxation and self-care.
+                        We believe everyone deserves to feel beautiful
+                        and confident.
+                    </p>
+
+                    <p>
+                        Our team is dedicated to providing quality beauty
+                        services using professional techniques and
+                        personalized care. Whether you need a new
+                        hairstyle, flawless makeup or a refreshing facial,
+                        we are here to make you shine.
+                    </p>
+
+                    <a href="#contact" class="main-btn">
+                        Learn More
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT SECTION -->
+
+<section id="contact" class="contact-section">
+
+    <div class="container">
+
+        <div class="section-heading text-center">
+
+            <p class="subtitle">GET IN TOUCH</p>
+
+            <h2>Book Your Appointment</h2>
+
+            <div class="heading-line"></div>
+
+            <p class="text-muted">
+                Ready for a beauty transformation? Contact us today.
+            </p>
+
+        </div>
+
+
+        <div class="row g-5">
+
+            <!-- CONTACT INFORMATION -->
+
+            <div class="col-lg-5">
+
+                <div class="contact-info">
+
+                    <h3>Let's Connect!</h3>
+
+                    <p>We would love to hear from you.</p>
+
+
+                    <div class="contact-item">
+
+                        <i class="bi bi-geo-alt-fill"></i>
+
+                        <div>
+
+                            <h5>Our Location</h5>
+
+                            <p>Meru, Kenya</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <i class="bi bi-telephone-fill"></i>
+
+                        <div>
+
+                            <h5>Phone Number</h5>
+
+                            <p>+254 700 000 000</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <i class="bi bi-envelope-fill"></i>
+
+                        <div>
+
+                            <h5>Email Address</h5>
+
+                            <p>info@glamourbeauty.com</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <i class="bi bi-clock-fill"></i>
+
+                        <div>
+
+                            <h5>Opening Hours</h5>
+
+                            <p>Monday - Saturday: 8AM - 7PM</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT FORM -->
+
+            <div class="col-lg-7">
+
+                <form id="contactForm" class="contact-form">
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+
+                            <label>Your Name</label>
+
+                            <input type="text" class="form-control"
+                                placeholder="Enter your name" required>
+
+                        </div>
+
+
+                        <div class="col-md-6 mb-3">
+
+                            <label>Email Address</label>
+
+                            <input type="email" class="form-control"
+                                placeholder="Enter your email" required>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label>Phone Number</label>
+
+                        <input type="tel" class="form-control"
+                            placeholder="Enter your phone number" required>
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label>Service Required</label>
+
+                        <select class="form-select" required>
+
+                            <option value="">Choose a service</option>
+
+                            <option>Hair Styling</option>
+
+                            <option>Makeup & Beauty</option>
+
+                            <option>Manicure & Pedicure</option>
+
+                            <option>Facial & Skincare</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label>Your Message</label>
+
+                        <textarea class="form-control" rows="5"
+                            placeholder="Write your message here..."></textarea>
+
+                    </div>
+
+
+                    <button type="submit" class="main-btn w-100">
+                        Send Message
+                    </button>
+
+                    <p id="formMessage" class="mt-3"></p>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-lg-4">
+
+                <h3><span>Glamour</span> Beauty</h3>
+
+                <p>
+                    Your beauty, our passion. We are dedicated to
+                    making you look beautiful and feel confident.
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-2 col-md-4">
+
+                <h5>Quick Links</h5>
+
+                <ul>
+
+                    <li><a href="#home">Home</a></li>
+
+                    <li><a href="#about">About</a></li>
+
+                    <li><a href="#services">Services</a></li>
+
+                    <li><a href="#contact">Contact Us</a></li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-4">
+
+                <h5>Our Services</h5>
+
+                <ul>
+
+                    <li><a href="#services">Hair Styling</a></li>
+
+                    <li><a href="#services">Makeup</a></li>
+
+                    <li><a href="#services">Nail Care</a></li>
+
+                    <li><a href="#services">Skincare</a></li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-4">
+
+                <h5>Follow Us</h5>
+
+                <p>Connect with us on social media.</p>
+
+                <div class="social-icons">
+
+                    <a href="#" aria-label="Facebook">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+                    <a href="#" aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="#" aria-label="TikTok">
+                        <i class="bi bi-tiktok"></i>
+                    </a>
+
+                    <a href="https://wa.me/254700000000"
+                        aria-label="WhatsApp">
+                        <i class="bi bi-whatsapp"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <hr>
+
+        <div class="copyright">
+
+            <p>
+                &copy; 2026 Glamour Beauty Parlour.
+                All Rights Reserved.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- FLOATING WHATSAPP BUTTON -->
+
+<a href="https://wa.me/254700000000"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener"
+    aria-label="Chat with us on WhatsApp">
+
+    <i class="bi bi-whatsapp"></i>
+
+</a>
+
+
+<!-- BOOTSTRAP JAVASCRIPT -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- CUSTOM JAVASCRIPT -->
+
+<script>
+
+// CONTACT FORM
+
+const contactForm = document.getElementById("contactForm");
+
+contactForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const formMessage = document.getElementById("formMessage");
+
+    formMessage.textContent =
+        "Thank you! Your message has been received.";
+
+    formMessage.style.color = "#e83e8c";
+
+    formMessage.style.fontWeight = "bold";
+
+    contactForm.reset();
+
+});
+
+
+// CLOSE MOBILE NAVBAR AFTER CLICKING A LINK
+
+const navLinks = document.querySelectorAll(".nav-link");
+
+const navbarCollapse = document.querySelector(".navbar-collapse");
+
+navLinks.forEach(function(link) {
+
+    link.addEventListener("click", function() {
+
+        if (navbarCollapse.classList.contains("show")) {
+
+            const bsCollapse =
+                bootstrap.Collapse.getOrCreateInstance(navbarCollapse);
+
+            bsCollapse.hide();
+
+        }
+
+    });
+
+});
+
+
+// NAVBAR SCROLL EFFECT
+
+window.addEventListener("scroll", function() {
+
+    const navbar = document.querySelector(".navbar");
+
+    if (window.scrollY > 50) {
+
+        navbar.style.padding = "10px 0";
+
+        navbar.style.boxShadow =
+            "0 3px 15px rgba(0,0,0,0.2)";
+
+    } else {
+
+        navbar.style.padding = "18px 0";
+
+        navbar.style.boxShadow = "none";
+
+    }
+
+});
+
+
+// ACTIVE NAVIGATION LINK
+
+window.addEventListener("scroll", function() {
+
+    const sections = document.querySelectorAll("section[id]");
+
+    let currentSection = "home";
+
+    sections.forEach(function(section) {
+
+        const sectionTop = section.offsetTop - 150;
+
+        if (window.scrollY >= sectionTop) {
+
+            currentSection = section.getAttribute("id");
+
+        }
+
+    });
+
+    navLinks.forEach(function(link) {
+
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === "#" + currentSection) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
